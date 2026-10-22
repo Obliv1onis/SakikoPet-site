@@ -1,0 +1,5 @@
+'use strict';
+const toast=document.querySelector('.toast'),toastText=document.querySelector('#toast-text');let toastTimer;
+function notify(message){clearTimeout(toastTimer);toastText.textContent=message;toast.hidden=false;toast.classList.remove('pop-in');void toast.offsetWidth;toast.classList.add('pop-in');toastTimer=setTimeout(()=>{toast.hidden=true;},5000);}
+document.querySelector('#toast-close').addEventListener('click',()=>{clearTimeout(toastTimer);toast.hidden=true;});
+for(const button of document.querySelectorAll('[data-copy]'))button.addEventListener('click',async()=>{const value=button.dataset.copy;try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(value);}else{const field=document.createElement('textarea');field.value=value;field.style.position='fixed';field.style.opacity='0';document.body.append(field);field.select();const copied=document.execCommand('copy');field.remove();button.focus();if(!copied)throw new Error('clipboard unavailable');}notify('提取码 '+value+' 已复制');}catch{notify('暂时无法自动复制，请手动复制提取码：'+value);}});
