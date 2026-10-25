@@ -14,4 +14,4 @@
 
 网站发布到独立公开仓库 `Obliv1onis/SakikoPet-site` 的 GitHub Pages，软件源仓库保持原有可见性。更新网页不需要重新构建桌宠。
 
-大模型与语音分类区分 Mac Dev 已实现的 DeepSeek 配置／钥匙串保存／启动检测与尚未开放的聊天、prompt 和动态朗读；当前 Mac Dev 为 0.9.3，不把它描述为公开 0.9 发布或 Windows 已同步。API 常识与报错参考 DeepSeek 官方文档；不要复制固定价格或过时型号。页面不会收集密钥。
+大模型与语音分类区分 Mac Dev 已实现的 DeepSeek 配置／钥匙串保存／启动检测与尚未开放的聊天、prompt 和动态朗读；当前 Mac Dev 为 0.9.0，不把它描述为公开 0.9 发布或 Windows 已同步。API 常识与报错参考 DeepSeek 官方文档；不要复制固定价格或过时型号。页面不会收集密钥。
