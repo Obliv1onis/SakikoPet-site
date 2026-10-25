@@ -12,3 +12,5 @@
 @media(max-width:390px){.brand{font-size:18px;gap:3px}.brand img{width:26px;height:26px}.site-header nav{gap:8px;font-size:10px}.nav-download{padding:6px 8px}.nav-download span{display:none}.faq-item summary{gap:7px}.faq-system{display:none}}
 
 .faq-section>.section-heading{margin-bottom:25px}.faq-section{scroll-margin-top:20px}
+
+.faq-answer a{color:var(--plum);text-decoration:underline;text-underline-offset:3px}
