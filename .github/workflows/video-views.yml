@@ -1,0 +1,29 @@
+name: Refresh video views
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: refresh-video-views
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refresh counts
+        run: python3 scripts/update-video-views.py
+      - name: Save counts and request Pages build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- index.html video-views.json; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html video-views.json
+          git commit -m 'chore: refresh video view counts'
+          git push
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/pages/builds"
